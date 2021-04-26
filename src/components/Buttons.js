@@ -36,6 +36,35 @@ class Buttons extends Component {
         History 
       </button>
 
+
+      {
+          (() => {
+             if (this.state.bool=="one")
+                return( 
+                  <div style={{ marginLeft: '20%', marginTop: '60px', width: '100%', height:'100%' }}>
+
+                  </div>
+                  )
+             if (this.state.bool=="two")
+                return (
+                    <div style={{ marginLeft: '20%', marginTop: '60px', width: '50%',border:'solid 1px', height:'100%'  }}>
+                      <Upload account={this.props.account} images={this.props.images}
+                          captureFile={this.props.captureFile}
+                          uploadImage={this.props.uploadImage}
+                          tipImageOwner={this.props.tipImageOwner}/>  
+                    </div>
+                  )
+             else
+                return (
+                  <div style={{ marginLeft: '20%', marginTop: '60px', width: '75%',border:'solid 1px', height:'100%'  }}>
+                    <Log images={this.props.images} account={this.props.account} date={ this.props.currentDateTime }/>
+                  </div>
+                  )
+          })()
+      }
+
+
+
     </div>
     );
   }
