@@ -1,7 +1,7 @@
 import Decentragram from '../abis/Decentragram.json'
 import React, { Component } from 'react';
 import Navbar from './Navbar'
-import Main from './Main'
+import Patient from './Patient'
 import Home from './Home'
 import Web3 from 'web3';
 import './App.css';
@@ -126,9 +126,9 @@ class App extends Component {
       <Navbar account={this.state.account}/>      
         <Router>
         
-          <Route path = "/Main" exact render = {(props) =>(
+          <Route path = "/Patient" exact render = {(props) =>(
             <>
-              <Main
+              <Patient
                 account={this.state.account} 
                 images={this.state.images}
                 captureFile={this.captureFile}
