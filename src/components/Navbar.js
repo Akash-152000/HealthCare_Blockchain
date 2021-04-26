@@ -16,7 +16,7 @@ class Navbar extends Component {
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="/HOME"><b>HOME</b></a>
-        <a class="nav-link" href="/Main"><b>PATIENT</b></a>
+        <a class="nav-link" href="/Patient"><b>PATIENT</b></a>
         <a class="nav-link" href="/Doctor"><b>DOCTOR</b></a>
       </div>
       </div>
