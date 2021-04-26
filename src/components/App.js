@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Patient from './Patient'
 import Home from './Home'
 import Doctor from './Doctor'
+import DocPatient from './DocPatient'
 import Web3 from 'web3';
 import './App.css';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
@@ -148,6 +149,11 @@ class App extends Component {
                 tipImageOwner={this.tipImageOwner}/>
             </>
           )} />
+          <Route path='/DocPatient'><DocPatient account={this.state.account} 
+                images={this.state.images}
+                captureFile={this.captureFile}
+                uploadImage={this.uploadImage}
+                tipImageOwner={this.tipImageOwner}/></Route>
           <Route path='/Home'><Home/></Route>
           <Route path='/Log'><Log images={this.state.images} account={this.state.account} date={ this.state.currentDateTime }/></Route>
         </Router>

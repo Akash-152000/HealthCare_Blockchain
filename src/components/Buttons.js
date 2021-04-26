@@ -47,7 +47,7 @@ class Buttons extends Component {
                   )
              if (this.state.bool=="two")
                 return (
-                    <div style={{ marginLeft: '20%', marginTop: '60px', width: '50%',border:'solid 1px', height:'100%'  }}>
+                    <div style={{ marginLeft: '30%', marginTop: '60px', width: '50%',border:'solid 1px', height:'100%'  }}>
                       <Upload account={this.props.account} images={this.props.images}
                           captureFile={this.props.captureFile}
                           uploadImage={this.props.uploadImage}
@@ -56,7 +56,7 @@ class Buttons extends Component {
                   )
              else
                 return (
-                  <div style={{ marginLeft: '20%', marginTop: '60px', width: '75%',border:'solid 1px', height:'100%'  }}>
+                  <div style={{ marginLeft: '30%', marginTop: '60px', width: '75%',border:'solid 1px', height:'100%'  }}>
                     <Log images={this.props.images} account={this.props.account} date={ this.props.currentDateTime }/>
                   </div>
                   )
