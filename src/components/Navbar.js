@@ -17,7 +17,7 @@ class Navbar extends Component {
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="/HOME"><b>HOME</b></a>
         <a class="nav-link" href="/Patient"><b>PATIENT</b></a>
-        <a class="nav-link" href="/Log"><b>DOCTOR</b></a>
+        <a class="nav-link" href="/Doctor"><b>DOCTOR</b></a>
       </div>
       </div>
       </div>

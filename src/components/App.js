@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Navbar from './Navbar'
 import Patient from './Patient'
 import Home from './Home'
+import Doctor from './Doctor'
 import Web3 from 'web3';
 import './App.css';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
@@ -129,6 +130,17 @@ class App extends Component {
           <Route path = "/Patient" exact render = {(props) =>(
             <>
               <Patient
+                account={this.state.account} 
+                images={this.state.images}
+                captureFile={this.captureFile}
+                uploadImage={this.uploadImage}
+                tipImageOwner={this.tipImageOwner}/>
+            </>
+          )} />
+
+          <Route path = "/Doctor" exact render = {(props) =>(
+            <>
+              <Doctor
                 account={this.state.account} 
                 images={this.state.images}
                 captureFile={this.captureFile}
