@@ -6,7 +6,7 @@ import Home from './Home'
 import Web3 from 'web3';
 import './App.css';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
-import Doctor from './Doctor'
+import Log from './Log'
 
 
 
@@ -137,7 +137,7 @@ class App extends Component {
             </>
           )} />
           <Route path='/Home'><Home/></Route>
-          <Route path='/Doctor'><Doctor images={this.state.images} account={this.state.account} date={ this.state.currentDateTime }/></Route>
+          <Route path='/Log'><Log images={this.state.images} account={this.state.account} date={ this.state.currentDateTime }/></Route>
         </Router>
         
       </div>
