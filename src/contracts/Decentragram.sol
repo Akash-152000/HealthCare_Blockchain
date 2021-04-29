@@ -3,6 +3,8 @@ pragma solidity ^0.5.0;
 contract Decentragram {
   string public name;
   uint public imageCount = 0;
+  uint public prescCount=0;
+  mapping(uint => Data) public data;
   mapping(uint => Image) public images;
 
   struct Image {
@@ -13,15 +15,8 @@ contract Decentragram {
     address payable author;
   }
 
-  event ImageCreated(
-    uint id,
-    string hash,
-    string description,
-    uint tipAmount,
-    address payable author
-  );
 
-  event ImageTipped(
+  event ImageCreated(
     uint id,
     string hash,
     string description,
@@ -50,20 +45,22 @@ contract Decentragram {
     emit ImageCreated(imageCount, _imgHash, _description, 0, msg.sender);
   }
 
-  function tipImageOwner(uint _id) public payable {
-    // Make sure the id is valid
-    require(_id > 0 && _id <= imageCount);
-    // Fetch the image
-    Image memory _image = images[_id];
-    // Fetch the author
-    address payable _author = _image.author;
-    // Pay the author by sending them Ether
-    address(_author).transfer(msg.value);
-    // Increment the tip amount
-    _image.tipAmount = _image.tipAmount + msg.value;
-    // Update the image
-    images[_id] = _image;
-    // Trigger an event
-    emit ImageTipped(_id, _image.hash, _image.description, _image.tipAmount, _author);
+
+  struct Data{
+    uint id;
+    string prescription;
+    address payable author;
+  }
+
+  event DataCreated(
+    uint id,
+    string prescription,
+    address payable author
+    );
+  function set(string memory _prescription) public {
+    prescCount ++;
+    data[prescCount]=Data(prescCount,_prescription,msg.sender);
+    emit DataCreated(prescCount,_prescription,msg.sender);
+
   }
 }
