@@ -16,6 +16,7 @@ class Patient extends Component {
         <Buttons account={this.props.account} 
                   images={this.props.images}
                   captureFile={this.props.captureFile}
+                  medicines={this.props.medicines}
                   uploadImage={this.props.uploadImage}
                   buttonFunction={this.buttonFunction}
                   tipImageOwner={this.props.tipImageOwner}/>

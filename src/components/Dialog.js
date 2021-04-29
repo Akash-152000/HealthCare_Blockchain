@@ -14,7 +14,7 @@ const Container = styled.div`
     border-radius: 5px;
 
 `;
-export default class Alert extends Component {
+export default class Alert   extends Component {
 
     render(){
         return(

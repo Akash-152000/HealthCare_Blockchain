@@ -26,7 +26,7 @@ class DocButton extends Component {
   }
 
   render() {
-
+    console.log("im in doc button",this.props.medicines)
     return (
     <div>
       <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark" onClick={this.handleClick1}>

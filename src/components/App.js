@@ -9,7 +9,8 @@ import Web3 from 'web3';
 import './App.css';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Log from './Log'
-
+import Alert from './Dialog'
+import { format } from 'date-fns';
 
 
 //Declare IPFS
@@ -59,6 +60,20 @@ class App extends Component {
           images: [...this.state.images, image]
         })
       }
+
+      const count=await decentragram.methods.prescCount().call()
+      this.setState({ count })
+
+      for(var i=count; i>=1; i--){
+        const medicine= await decentragram.methods.data(i).call()
+        this.setState({
+          medicines:[...this.state.medicines,medicine]
+        })
+
+      }
+
+
+
       // Sort images. Show highest tipped images first
       this.setState({
         images: this.state.images.sort((a,b) => b.tipAmount - a.tipAmount )
@@ -100,6 +115,16 @@ class App extends Component {
     })
   }
 
+
+  uploadImage1=prescription=>{
+    this.setState({ loading: true })
+    this.state.decentragram.methods.set(prescription).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+    })    
+  }
+
+
+
   tipImageOwner(id, tipAmount) {
     this.setState({ loading: true })
     this.state.decentragram.methods.tipImageOwner(id).send({ from: this.state.account, value: tipAmount }).on('transactionHash', (hash) => {
@@ -113,16 +138,19 @@ class App extends Component {
       account: '',
       decentragram: null,
       images: [],
+      medicines:[],
       loading: true,
-      currentDateTime: Date().toLocaleString()
+      currentDateTime: format(new Date(), 'yyyy/MM/dd kk:mm:ss')
     }
 
     this.uploadImage = this.uploadImage.bind(this)
+    this.uploadImage1 = this.uploadImage1.bind(this)
     this.tipImageOwner = this.tipImageOwner.bind(this)
     this.captureFile = this.captureFile.bind(this)
   }
 
   render() {
+
     return (
       <div>
       <Navbar account={this.state.account}/>      
@@ -133,6 +161,7 @@ class App extends Component {
               <Patient
                 account={this.state.account} 
                 images={this.state.images}
+                medicines={this.state.medicines}
                 captureFile={this.captureFile}
                 uploadImage={this.uploadImage}
                 tipImageOwner={this.tipImageOwner}/>
@@ -144,18 +173,23 @@ class App extends Component {
               <Doctor
                 account={this.state.account} 
                 images={this.state.images}
+                medicines={this.state.medicines}
                 captureFile={this.captureFile}
                 uploadImage={this.uploadImage}
                 tipImageOwner={this.tipImageOwner}/>
             </>
           )} />
-          <Route path='/DocPatient'><DocPatient account={this.state.account} 
-                images={this.state.images}
-                captureFile={this.captureFile}
-                uploadImage={this.uploadImage}
-                tipImageOwner={this.tipImageOwner}/></Route>
+          <Route path='/DocPatient'>
+                <DocPatient 
+                  account={this.state.account} 
+                  images={this.state.images}
+                  medicines={this.state.medicines}
+                  captureFile={this.captureFile}
+                  uploadImage={this.uploadImage}
+                  uploadImage1={this.uploadImage1}
+                  tipImageOwner={this.tipImageOwner}/></Route>
           <Route path='/Home'><Home/></Route>
-          <Route path='/Log'><Log images={this.state.images} account={this.state.account} date={ this.state.currentDateTime }/></Route>
+          <Route path='/Log'><Log images={this.state.images} medicines={this.state.medicines} account={this.state.account} date={ this.state.currentDateTime }/></Route>
         </Router>
         
       </div>

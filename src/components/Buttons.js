@@ -57,7 +57,8 @@ class Buttons extends Component {
              else
                 return (
                   <div style={{ marginLeft: '30%', marginTop: '60px', width: '75%',border:'solid 1px', height:'100%'  }}>
-                    <Log images={this.props.images} account={this.props.account} date={ this.props.currentDateTime }/>
+                    <Log images={this.props.images} medicines={this.props.medicines} account={this.props.account} date={ this.props.currentDateTime }/>
+                    
                   </div>
                   )
           })()

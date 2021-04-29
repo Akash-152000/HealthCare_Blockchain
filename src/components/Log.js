@@ -11,34 +11,35 @@ import Alert from './Dialog'
 
 
 class Doctor extends Component{
-	render(){
-	  return(
-	    <React.Fragment>
-        {this.props.account=="0x8DC19af8E93D76E862A513766c276568D1a99e6A"?
-           this.props.images.map((image, key) => {
+  render(){
+    console.log("looggg",this.props.medicines)
+    return(
+      <React.Fragment>
+        {this.props.account=="0xa4B5CAFd253f8f1dd5933e83733D4FFb8e63589f"?
+           this.props.medicines.map((image, key) => {
                   return(
-                    <div className="card mb-4" key={key} >
-                      <ul id="imageList" className="list-group list-group-flush">
-                        <li className="list-group-item">
-                          <p class="text-center"><iframe src={`https://ipfs.infura.io/ipfs/${image.hash}`} width="500px" height="500px"/></p>
-                          <p>{image.description}</p>
-                          <p>{this.props.date}</p>
-                        </li>    
-                      </ul>
+                    <div>
+                      <div className="card mb-4" key={key} >
+                        <ul id="imageList" className="list-group list-group-flush">
+                          <li className="list-group-item">
+                            <p class="text-center"><iframe src={`https://ipfs.infura.io/ipfs/${this.props.images[key].hash}`} width="500px" height="500px"/></p>
+                            <p><b>Patient message: </b>{this.props.images[key].description}</p>
+                            <p><b>Prescription: </b>{image.prescription}</p>
+                            
+                            <p>{this.props.date}</p>
+                          </li>    
+                        </ul>
+                      </div>
+
                     </div>
                   )
                 })
           :<Alert />
       }
-      
 
-      
-      
-
-	  	
-	    </React.Fragment>
-	    )
-	}
+      </React.Fragment>
+      )
+  }
 
 }
 

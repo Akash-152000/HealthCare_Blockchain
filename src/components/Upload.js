@@ -11,7 +11,7 @@ class Upload extends Component {
     return (
     <div>
       {
-        this.props.account=="0x8DC19af8E93D76E862A513766c276568D1a99e6A"?
+        this.props.account=="0xa4B5CAFd253f8f1dd5933e83733D4FFb8e63589f"?
         <div className="container-fluid mt-5">
         <div className="row">
           <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
@@ -23,7 +23,7 @@ class Upload extends Component {
                 const description = this.imageDescription.value
                 this.props.uploadImage(description)
             
-              }} >
+                }} >
                 <input type='file' accept=".jpg, .jpeg, .png, .bmp, .gif , .csv, .pdf" onChange={this.props.captureFile} />
                   <div className="form-group mr-sm-2">
                     <br></br>
