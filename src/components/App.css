@@ -88,3 +88,34 @@
   margin: 8px 0;
   box-sizing: border-box;
 }
+
+.userInfo{
+  color:black;
+  margin-left: 600px;
+
+}
+
+.wrap {
+    width: 400px;
+    height: 200px;
+    padding: 0;
+    margin-left: 40px;
+    overflow: hidden;
+}
+
+.frame {
+    width: 1300px;
+    height: 1200px;
+    border: 0;
+    -ms-transform: scale(0.15);
+    -moz-transform: scale(0.15);
+    -o-transform: scale(0.15);
+    -webkit-transform: scale(0.15);
+    transform: scale(0.15);
+
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
