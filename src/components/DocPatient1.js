@@ -35,6 +35,9 @@ class DocPatient1 extends Component {
                 </form>
           <Log images={this.props.images} medicines={this.props.medicines} account={this.props.account} date={ this.props.currentDateTime }/>
       </div>
+      <div className="column1">
+        <Profile profiles={this.props.profiles2}/>
+      </div>
     </div>
     );
   }

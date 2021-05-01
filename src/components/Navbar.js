@@ -19,9 +19,9 @@ class Navbar extends Component {
                 <a className="nav-link" href="/Patient"><b>PATIENT</b></a>
                 <a className="nav-link" href="/Doctor"><b>DOCTOR</b></a>
                 <div className="userInfo">
-                  <b className="nav-link" >Account: {this.props.account}</b>
+                  <b>Account: {this.props.account}</b>
                   {this.props.profiles.length>0?
-                    <b className="nav-link" aria-current="page">Logged in as: {this.props.profiles.map((image, key) => {return(<p>{image.name}</p>)})}</b>
+                    <b aria-current="page">{this.props.profiles.map((image, key) => {return(<p>Logged in as: {image.name}</p>)})}</b>
                     :<b className="nav-link" aria-current="page">Logged in as:</b>
                   }
                   

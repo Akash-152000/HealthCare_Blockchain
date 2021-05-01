@@ -23,12 +23,12 @@ class Doctor extends Component {
                 <div className="column">
                   <DocButton account={this.props.account} 
                            images={this.props.images}
-                            
                             captureFile={this.props.captureFile}
                             medicines={this.props.medicines}
                             uploadImage={this.props.uploadImage}
                             buttonFunction={this.buttonFunction}
-                            
+                            profiles1={this.props.profiles1}
+                            profiles2={this.props.profiles2}
                             tipImageOwner={this.props.tipImageOwner}/>
                </div>
             <div className="column1">

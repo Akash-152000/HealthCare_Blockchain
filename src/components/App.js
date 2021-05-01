@@ -53,7 +53,23 @@ class App extends Component {
       const decentragram = new web3.eth.Contract(Decentragram.abi, networkData.address)
       this.setState({ decentragram })
 
+    const profileCount1 = await decentragram.methods.profileCount().call()
+        
+        for (var i = 1; i <=profileCount1; i++) {
+          const profile1 = await decentragram.methods.profile(i).call()
+          this.setState({
+            profiles1: [...this.state.profiles1, profile1]
+          })
+        }
 
+    const profileCount2 = await decentragram.methods.profileCount2().call()
+        
+        for (var i = 1; i <=profileCount2; i++) {
+          const profile2 = await decentragram.methods.profile2(i).call()
+          this.setState({
+            profiles2: [...this.state.profiles2, profile2]
+          })
+        }
 
       if(this.state.account=="0x8c883D229fc97F477153a6ba56367E2FBf73b310"){
         this.setState({patientName:"Patient1"})
@@ -267,6 +283,8 @@ class App extends Component {
       medicines1:[],
       medicines2:[],
       profiles:[],
+      profiles1:[],
+      profiles2:[],
       p1:0,
       p2:0,
       d:0,
@@ -316,6 +334,8 @@ class App extends Component {
                 uploadImage={this.uploadImage}
                 uploadProfile={this.uploadProfile}
                 profiles={this.state.profiles}
+                profiles1={this.state.profiles1}
+                profiles2={this.state.profiles2}
                 tipImageOwner={this.tipImageOwner}/>
             </>
           )} />
@@ -328,6 +348,7 @@ class App extends Component {
                   captureFile={this.captureFile}
                   uploadImage={this.uploadImage}
                   uploadImage1={this.uploadImage1}
+                  profiles1={this.state.profiles1}
                   tipImageOwner={this.tipImageOwner}/></>
           )} />
 
@@ -340,6 +361,7 @@ class App extends Component {
                   medicines={this.state.medicines1}
                   uploadImage={this.uploadImage}
                   uploadImage1={this.uploadImage1}
+                  profiles2={this.state.profiles2}
                   tipImageOwner={this.tipImageOwner}/></>
           )} />
 

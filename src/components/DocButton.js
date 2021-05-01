@@ -30,10 +30,10 @@ class DocButton extends Component {
     return (
     <div>
       <button type="button" className="btn btn-outline-primary" data-mdb-ripple-color="dark" onClick={this.handleClick1}>
-        <a href="/DocPatient1">Patient 1</a>
+        <a href="/DocPatient1">{this.props.profiles1.map((image, key) => {return(<p>{image.name}</p>)})}</a>
       </button>
       <button type="button" className="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={this.handleClick2}>
-        <a href="/DocPatient2">Patient 2</a>
+        <a href="/DocPatient2">{this.props.profiles2.map((image, key) => {return(<p>{image.name}</p>)})}</a>
       </button>
 
     </div>
