@@ -4,7 +4,7 @@ import Alert from './Dialog'
 import DocButton from './DocButton'
 import Profile from './Profile'
 import UploadProfile from './UploadProfile'
-import './Patient.css'
+import './App.css'
 
 
 class Doctor extends Component {
@@ -13,7 +13,7 @@ class Doctor extends Component {
   render() {
     console.log("lkmclskdc",this.props.profiles.length)
     return (
-      <div>
+      <div className="super">
       {
         this.props.account=="0xE24c1eE4f2E6446955A64C4DFb16173C6815bb54"?  
               this.props.account=="0xE24c1eE4f2E6446955A64C4DFb16173C6815bb54" && this.props.profiles.length==0 ?

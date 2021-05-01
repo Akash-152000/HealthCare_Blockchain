@@ -11,7 +11,7 @@ class Patient extends Component {
 
   render() {
     return (
-      <div>
+      <div className="super">
       {
         this.props.account=="0x8c883D229fc97F477153a6ba56367E2FBf73b310" || this.props.account=="0xE2a6078e50592330C3113161325cE01f364Ac00C"?  
           this.props.account=="0x8c883D229fc97F477153a6ba56367E2FBf73b310" && this.props.profiles.length==0 ?
