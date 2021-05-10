@@ -17,7 +17,9 @@ class Doctor extends Component {
       {
         this.props.account==this.props.account3?  
               this.props.account==this.props.account3 && this.props.profiles.length==0 ?
-                <UploadProfile account={this.props.account} uploadProfile={this.props.uploadProfile} captureFile={this.props.captureFile}/>
+                <UploadProfile account={this.props.account} uploadProfile={this.props.uploadProfile} captureFile={this.props.captureFile} account1={this.props.account1}
+                          account2={this.props.account2}
+                          account3={this.props.account3}/>
 
               :<div className="row ">
                 <div className="column">
